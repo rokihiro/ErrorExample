@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         // use do-catch
         
         do {
+            // エラーの有無にかかわらずdo-catchを抜けた直後に実行
+            defer{
+                print ("do-catchが終わった")
+            }
             let name = try validateNameWithDoCatch(name: self.nameTextField.text)
             self.DoCatchErrorLabel.text = "\(name)を登録しました。"
         }catch ValidationError.Empty{
